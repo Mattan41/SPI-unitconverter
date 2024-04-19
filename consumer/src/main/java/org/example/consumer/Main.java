@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ServiceLoader;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         ServiceLoader<Converter> loader = ServiceLoader.load(Converter.class);
 
