@@ -2,12 +2,12 @@ package org.example.providers;
 
 import org.example.service.Converter;
 
-@converterName("Feet To Meter")
+@converterName(value = "Feet To Meter")
 public class FeetToMeterConverter implements Converter {
 
     @Override
     public String inputPrompt() {
-        return "input foot: ";
+        return "input feet: ";
     }
 
     @Override
