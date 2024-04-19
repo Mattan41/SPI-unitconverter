@@ -44,9 +44,9 @@ public class Main {
         StringBuilder convertMenu = new StringBuilder();
 
         for (int i = 0; i < converters.size(); i++) {
-            String className = converters.get(i).getClass().getName();
-            String shortClassName = className.substring(className.lastIndexOf(".") + 1);
-            convertMenu.append(i + 1).append(". ").append(shortClassName).append("\n");
+            String className = converters.get(i).getClass().getAnnotations()[0].toString();
+
+            convertMenu.append(i + 1).append(". ").append(className).append("\n");
         }
 
         return convertMenu.toString();

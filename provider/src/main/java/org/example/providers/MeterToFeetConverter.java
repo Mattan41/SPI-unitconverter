@@ -2,7 +2,7 @@ package org.example.providers;
 
 import org.example.service.Converter;
 
-
+@converterName("Meter To Feet")
 public class MeterToFeetConverter implements Converter {
 
     @Override
