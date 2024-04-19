@@ -4,13 +4,9 @@ import org.example.service.Converter;
 
 public class FeetToMeterConverter implements Converter {
 
-//    public FeetToMeterConverter() {
-//        System.out.println("\nFeet To Meter Converter instantiated");
-//    }
-
     @Override
     public String inputPrompt() {
-        return "input feet: ";
+        return "input foot: ";
     }
 
     @Override
