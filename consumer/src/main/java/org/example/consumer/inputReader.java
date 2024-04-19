@@ -1,17 +1,20 @@
 package org.example.consumer;
 
+import org.example.service.Converter;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class inputReader {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int inputIntChoice(String prompt) {
+    public static int inputIntChoice(String prompt, List<Converter> converters) {
         while (true) {
             System.out.print(prompt);
             try {
                 int value = Integer.parseInt(scanner.nextLine());
-                if (value < 1 || value > 2) {
+                if (value < 1 || value > converters.size()) {
                     System.out.println("Invalid input. Please try again.");
                     continue;
                 }

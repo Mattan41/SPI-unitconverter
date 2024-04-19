@@ -14,23 +14,32 @@ public class Main {
 
         ServiceLoader<Converter> loader = ServiceLoader.load(Converter.class);
 
-        List<Converter> converters = new ArrayList<>();
-        for (Converter converter : loader) {
-            converters.add(converter);
-
-        }
-
+        List<Converter> converters = getConverters(loader);
 
         System.out.println("Choose a converter:");
 
         String converterMenu = getConverterMenu(converters);
-        int choice = inputIntChoice((converterMenu));
+        int choice = inputIntChoice((converterMenu), converters);
 
-        
-        switch (choice) {
-            case 1 -> useConverter(converters.get(0));
-            case 2 -> useConverter(converters.get(1));
-            default -> System.out.println("Invalid choice. Please try again.");
+        useConverter(choice, converters);
+    }
+
+    private static List<Converter> getConverters(ServiceLoader<Converter> loader) {
+        List<Converter> converters = new ArrayList<>();
+        for (Converter converter : loader) {
+            converters.add(converter);
+        }
+        return converters;
+    }
+
+    private static void useConverter(int choice, List<Converter> converters) {
+        if (choice >= 1 && choice <= converters.size()) {
+            Converter converter = converters.get(choice - 1);
+            System.out.println(converter.inputPrompt());
+            int input = inputReader.inputInt("");
+            System.out.println(converter.convert(input));
+        } else {
+            System.out.println("Invalid choice. Please try again.");
         }
     }
 
@@ -46,12 +55,4 @@ public class Main {
         return convertMenu.toString();
     }
 
-    private static void useConverter(Converter converter) {
-
-        System.out.println(converter.inputPrompt());
-        int input = inputReader.inputInt("");
-        System.out.println(converter.convert(input));
-
-
-    }
 }
