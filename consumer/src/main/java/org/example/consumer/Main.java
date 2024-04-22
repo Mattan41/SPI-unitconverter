@@ -1,5 +1,6 @@
 package org.example.consumer;
 
+import org.example.service.converterName;
 import org.example.service.Converter;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class Main {
         StringBuilder convertMenu = new StringBuilder();
 
         for (int i = 0; i < converters.size(); i++) {
-            String className = converters.get(i).getClass().getAnnotations()[0].toString();
+            String className = converters.get(i).getClass().getAnnotation(converterName.class).value();
 
             convertMenu.append(i + 1).append(". ").append(className).append("\n");
         }
