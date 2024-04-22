@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  unitconverter:
+    image: openjdk:22
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./SPI-unitconverter/lib:/app/lib
+    command: ["java", "-jar", "lib/unitconverter.jar"]
