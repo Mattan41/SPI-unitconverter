@@ -1,11 +1,13 @@
 version: '3.8'
-
 services:
-  unitconverter:
+  app:
     image: openjdk:22
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
-      - ./SPI-unitconverter/lib:/app/lib
-    command: ["java", "-jar", "lib/unitconverter.jar"]
+      - ./consumer/target:/app
+      - ./service/target:/app
+      - ./provider/target:/app
