@@ -1,4 +1,4 @@
-package org.example.providers;
+package org.example.service;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
