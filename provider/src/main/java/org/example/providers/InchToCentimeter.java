@@ -3,17 +3,15 @@ package org.example.providers;
 import org.example.service.Converter;
 import org.example.service.ConverterName;
 
-@ConverterName("Meter To Feet")
-public class MeterToFeetConverter implements Converter {
+@ConverterName("Inch To Centimeter")
+public class InchToCentimeter implements Converter {
 
     @Override
     public String inputPrompt() {
-        return "input meter: ";
+        return "input inch: ";
     }
 
-    @Override
     public String convert(int input) {
-        return input + " meters is equal to " + input * 3.28084 + " feet";
+        return input + " inch is equal to " + input * 2.54 + " centimeter";
     }
-
 }

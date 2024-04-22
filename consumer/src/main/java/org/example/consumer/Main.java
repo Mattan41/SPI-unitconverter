@@ -1,6 +1,6 @@
 package org.example.consumer;
 
-import org.example.service.converterName;
+import org.example.service.ConverterName;
 import org.example.service.Converter;
 
 import java.util.ArrayList;
@@ -15,11 +15,15 @@ public class Main {
         ServiceLoader<Converter> loader = ServiceLoader.load(Converter.class);
         List<Converter> converters = getConverters(loader);
 
-        System.out.println("Choose a converter:");
-
-        String converterMenu = getConverterMenu(converters);
-        int choice = inputIntChoice((converterMenu), converters);
-        useConverter(choice, converters);
+        int choice = -1;
+        while (choice != 0) {
+            System.out.println("Choose a converter:");
+            String converterMenu = getConverterMenu(converters);
+            choice = inputIntChoice(converterMenu, converters);
+            if (choice != 0) {
+                useConverter(choice, converters);
+            }
+        }
     }
 
     private static List<Converter> getConverters(ServiceLoader<Converter> loader) {
@@ -45,11 +49,11 @@ public class Main {
         StringBuilder convertMenu = new StringBuilder();
 
         for (int i = 0; i < converters.size(); i++) {
-            String className = converters.get(i).getClass().getAnnotation(converterName.class).value();
+            String className = converters.get(i).getClass().getAnnotation(ConverterName.class).value();
 
             convertMenu.append(i + 1).append(". ").append(className).append("\n");
         }
-
+        convertMenu.append("0. Exit");
         return convertMenu.toString();
     }
 }

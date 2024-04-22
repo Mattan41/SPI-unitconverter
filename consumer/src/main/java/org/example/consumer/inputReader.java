@@ -14,7 +14,7 @@ public class inputReader {
             System.out.print(prompt);
             try {
                 int value = Integer.parseInt(scanner.nextLine());
-                if (value < 1 || value > converters.size()) {
+                if (value < 0 || value > converters.size()) {
                     System.out.println("Invalid input. Please try again.");
                     continue;
                 }

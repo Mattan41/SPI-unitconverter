@@ -1,9 +1,9 @@
 package org.example.providers;
 
 import org.example.service.Converter;
-import org.example.service.converterName;
+import org.example.service.ConverterName;
 
-@converterName("Feet To Meter")
+@ConverterName("Feet To Meter")
 public class FeetToMeterConverter implements Converter {
 
     @Override
