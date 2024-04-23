@@ -6,4 +6,4 @@ COPY service/target/*.jar service.jar
 COPY consumer/target/*.jar consumer.jar
 COPY provider/target/*.jar provider.jar
 
-CMD ["bash", "-c", "java -p . -m org.example.consumer/org.example.consumer.Main"]
+CMD ["java", "-p", ".", "-m", "org.example.consumer/org.example.consumer.Main"]
